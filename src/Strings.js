@@ -9,8 +9,11 @@ ERROR CASES: Return null if str is null or not of type string.
 
 */
 exports.ReverseString = function(str){
-
-
+	if(typeof(str) != 'string' || str == ''){
+		return null;
+	}
+	
+	return str.split("").reverse().join("");
 }
 
 /*
@@ -29,6 +32,18 @@ NOTES: You can use built-in JS Functions to solve this problem.
 */
 
 exports.GetFirstNames = function(str){
+	var firstNames=[];
+	if(str==null || typeof(str)!='string')
+		return null;
+	var names = str.split(';');
+	for(nam of names){
+		if(nam=='')
+			return '';
+		var fullName = nam.split(",");
+		if(isNaN(fullName[1]))
+			firstNames.push(fullName[1]);
+	}
+	return firstNames;
 }
 
 
@@ -49,6 +64,11 @@ NOTES: You can use built-in JS Functions to solve this problem.
 
 */
 exports.CreateParagraph = function(arrayOfStrings){
-
+	if(arrayOfStrings==null)
+		return null;
+	if(arrayOfStrings.length>0){
+		return arrayOfStrings.join('.')+'.';
+	}
+	return "";
 }
 
